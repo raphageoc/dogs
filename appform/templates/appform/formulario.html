@@ -1,0 +1,26 @@
+{% block add_dog %}
+
+{% load staticfiles %}
+<div id="form2">
+<form action="/consulta" method="POST" enctype="multipart/form-data" id= "form1">
+  <div class="imgcontainer">
+    <img src="{% static 'cachorro_sombra.jpg' %}" alt="Avatar" class="avatar">
+
+  </div>
+
+  <div class="formulario">
+      {% csrf_token %}
+      <p>{{ form.foto.label_tag }}  {{ form.foto }}</p>
+      <p>{{ form.nome.label_tag }}  {{ form.nome }}</p>
+      <p>{{ form.porte.label_tag }}  {{ form.porte }}</p>
+      <p>{{ form.raca.label_tag }}  {{ form.raca }}</p>
+      <p>{{ form.idade.label_tag }}  {{ form.idade }}</p>
+      <input id="ponto" type="text" name="geojson" />
+
+  </div>
+
+  <p><input type="submit" value="Cadastrar" /></p>
+</form>
+</div>
+
+{% endblock %}

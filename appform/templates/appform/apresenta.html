@@ -1,0 +1,27 @@
+
+{% block apresenta %}
+
+{% load staticfiles %}
+<div id="form2">
+
+
+<form action="/apresenta" method="POST" enctype="multipart/form-data" id= "form2">
+  {% csrf_token %}
+<table>
+  {% for n in img %}
+  <th>
+    <tr>   <img src="{{ n.foto.url }}"  height="100px"  /> </td>
+    <tr>      <p>{{ n.nome.label_tag }}  {{ n.nome }}</p> </td>
+    <tr>      <p>{{ n.porte.label_tag }}  {{ n.porte }}</p> </td>
+    <tr>      <p>{{ n.raca.label_tag }}  {{ n.raca }}</p> </td>
+    <tr>      <p>{{ n.idade.label_tag }}  {{ n.idade }}</p> </td>
+
+
+<th>
+{% endfor %}
+</table>
+  <p><input type="submit" value="Cadastrar" /></p>
+</form>
+</div>
+
+{% endblock %}
