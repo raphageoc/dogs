@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for projeto_django_form project.
 
@@ -37,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
-    'appform',
+    'django.contrib.gis',                    ########################## adiciona as funções gis ao django
+    'appform',                               ########################## adiciona o aplicativo gerado ao projeto
 ]
 
 MIDDLEWARE = [
@@ -77,8 +79,8 @@ WSGI_APPLICATION = 'projeto_django_form.wsgi.application'
 
 DATABASES = {
     'default': {
-                'ENGINE': 'django.contrib.gis.db.backends.postgis',
-                'NAME': 'geodjango',
+                'ENGINE': 'django.contrib.gis.db.backends.postgis',   ##########################  define qual banco de dados o projeto vai utilizar
+                'NAME': 'geodjango',                                 ##########################configurações do banco de dado
                 'USER': 'postgres',
                 'PASSWORD': 'postgres',
                 'HOST':'127.0.0.1',
@@ -124,8 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'                                   ########################## caminho dentro da pasta do aplicativo para os CSSs, javascripts e imagens usadas no layout
 
-MEDIA_URL = '/media/'
-# MEDIA_ROOT = '/home/rapha/Dropbox/Doutorado/disciplinas/Docencia/projeto_django_form/appform/media/'
-MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'                                     ########################## caminho dentro da pasta do aplicativo para as imagens upadas no site
+MEDIA_ROOT = 'media'                                      ########################## nome do diretorio dentro da pasta do aplicativo onde as imagens upadas serão armazenadas

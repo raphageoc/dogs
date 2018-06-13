@@ -8,9 +8,9 @@
 <form action="/apresenta" method="POST" enctype="multipart/form-data" id= "form2">
   {% csrf_token %}
 <table>
-  {% for n in img %}
+  {% for n in img %} <!-- img é passado pelo servidor com os dados de todos os cachorros e percorrido pelo for gerando o código abaixo para cada cachorro cadastrado-->
   <th>
-    <tr>   <img src="{{ n.foto.url }}"  height="100px"  /> </td>
+    <tr>   <img src="{{ n.foto.url }}"  height="100px"  /> </td> <!-- foto.url indica o caminho da foto do cachorro para ser carregada neste template-->
     <tr>      <p>{{ n.nome.label_tag }}  {{ n.nome }}</p> </td>
     <tr>      <p>{{ n.porte.label_tag }}  {{ n.porte }}</p> </td>
     <tr>      <p>{{ n.raca.label_tag }}  {{ n.raca }}</p> </td>
@@ -20,7 +20,7 @@
 <th>
 {% endfor %}
 </table>
-  <p><input type="submit" value="Cadastrar" /></p>
+  <p><input type="submit" value="Mostrar" /></p>
 </form>
 </div>
 

@@ -1,25 +1,28 @@
 {% block add_dog %}
 
-{% load staticfiles %}
+ {% load staticfiles %} <!-- necessario para carregar os arquivos estáticos (imagens, javascripts, css) -->
 <div id="form2">
+  <!--"action" define para qual endereço os dados do formuário vai ser enviado  -->
+  <!--method é metodo http utilizados, enctype="multipart/form-data" é necessario no envio de arquivos pelo formulario   -->
 <form action="/consulta" method="POST" enctype="multipart/form-data" id= "form1">
   <div class="imgcontainer">
+    <!-- static 'cachorro_sombra.jpg carrega a imagem do cachorro armazenada na pasta static -->
     <img src="{% static 'cachorro_sombra.jpg' %}" alt="Avatar" class="avatar">
 
   </div>
 
   <div class="formulario">
-      {% csrf_token %}
-      <p>{{ form.foto.label_tag }}  {{ form.foto }}</p>
+     {% csrf_token %}   <!-- define um token de seguranca para requisicoes do tipo POST , SEMPRE DEVE SER USADO NOS FORMS HTML COM DJANGO  -->
+      <p>{{ form.foto.label_tag }}  {{ form.foto }}</p>   <!-- form.foto.label_tag represente o nome do campo utilizado no formulario criado no django,  form.foto cria um campo no html conforme o tipo definido no seu modelo de dados-->
       <p>{{ form.nome.label_tag }}  {{ form.nome }}</p>
       <p>{{ form.porte.label_tag }}  {{ form.porte }}</p>
       <p>{{ form.raca.label_tag }}  {{ form.raca }}</p>
       <p>{{ form.idade.label_tag }}  {{ form.idade }}</p>
-      <input id="ponto" type="text" name="geojson" />
+      <input id="ponto" type="text" name="geojson" /> <!-- cria um input para armazenarmos o ponto em formato geojson clicado no mapa e assim podemos passar para o servido pelo formulario, a tag name é utilizada para identificarmos a informação contida no input no lado do servidos (ver na view add_dog)-->
 
   </div>
 
-  <p><input type="submit" value="Cadastrar" /></p>
+  <p><input type="submit" value="Cadastrar" /></p> <!-- botão para submeter o formulario -->
 </form>
 </div>
 
